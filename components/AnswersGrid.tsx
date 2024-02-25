@@ -23,9 +23,10 @@ interface AnswerJson {
     readonly score: number
 }
 
-const mapQuestions = (questionsJson: ReadonlyArray<QuestionJson>): Questions[] {
+// TODO
+// const mapQuestions = (questionsJson: ReadonlyArray<QuestionJson>): Question[] {
     
-}
+// }
 
 
 export default () => {
