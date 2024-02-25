@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+body {
+  background: #f97316
+}
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -27,4 +30,4 @@ a {
     color: white;
     background: rgb(51, 49, 49);
   }
-}
+} */

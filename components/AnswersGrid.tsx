@@ -1,6 +1,8 @@
 import { stringify } from "querystring";
 import React from "react";
 
+import * as questionsJson from "@questions/questions_halloween_2022_01.json"
+
 const answers = [
     'Foo (30)',
     'Bar (23)',
@@ -11,13 +13,25 @@ const answers = [
     'Moon (1)',
 ]
 
-const evenColor = 'amber-500'
-const oddColor = 'yellow-900'
+interface QuestionJson {
+    readonly question: string
+    readonly answers: ReadonlyArray<AnswerJson>
+}
 
+interface AnswerJson {
+    readonly text: string
+    readonly score: number
+}
 
+const mapQuestions = (questionsJson: ReadonlyArray<QuestionJson>): Questions[] {
+    
+}
 
 
 export default () => {
+
+    console.log("questions:", JSON.stringify(questionsJson))
+    console.log("question count:", questionsJson.length)
     
     const [flips, setFlips] = React.useState({} as Record<string, boolean>)
     const [currentQuestion, setCurrentQuestion] = React.useState(1)
@@ -43,7 +57,7 @@ export default () => {
     }
 
     return (<React.Fragment>
-        <div className="flex mx-[5px] px-[2px] py-[10px]">
+        <div className="flex mx-[5px] px-[2px] py-[10px] min-h-[250px]">
             <div className="w-1/2 m-[2px] ">
                 {(createButton('Answer 1 (50)', 'answer-1'))}
             </div>
@@ -66,14 +80,3 @@ export default () => {
         </div> */}
     </React.Fragment>)
 }
-
-
-{/* <div className="flex mb-4">
-        {/* neutral-900 /}
-        {answers.map((answer, i) => (<div className={`flex-1 bg-${i % 2 === 1 ? evenColor : oddColor} h-12`}>{answer}</div>))}
-        {/* <div className="flex-1 bg-gray-400 h-12">1</div>
-        <div className="flex-1 bg-gray-500 h-12">2</div>
-        <div className="flex-1 bg-gray-400 h-12">3</div>
-        <div className="flex-1 bg-gray-500 h-12">4</div>
-        <div className="flex-1 bg-gray-400 h-12">5</div> /}
-    </div> */}
